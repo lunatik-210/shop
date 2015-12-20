@@ -1,6 +1,6 @@
 
 export default class SignUpController {
-    constructor($scope, $state) {
+    constructor() {
         'ngInject';
     }
 }

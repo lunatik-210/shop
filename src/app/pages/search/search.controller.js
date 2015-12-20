@@ -1,6 +1,6 @@
 
 export default class SearchController {
-    constructor($scope, $state) {
+    constructor() {
         'ngInject';
     }
 }

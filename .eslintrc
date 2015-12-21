@@ -12,7 +12,8 @@
     "angular": true,
     "module": true,
     "inject": true,
-    "store": true,
+    "_": true,
+    "bcrypt": true,
     "$"
   }
 }

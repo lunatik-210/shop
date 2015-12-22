@@ -1,7 +1,12 @@
 
 import './auth.module';
 
-import {AUTH_USER_EXISTS, AUTH_PASSWORD_IS_NOT_MATCHED, AUTH_WRONG_EMAIL, AUTH_USER_IS_NOT_FOUND} from './auth.service';
+import {
+    AUTH_USER_EXISTS, 
+    AUTH_PASSWORD_IS_NOT_MATCHED, 
+    AUTH_WRONG_EMAIL, 
+    AUTH_USER_IS_NOT_FOUND
+} from './auth.service';
 
 describe('Auth Service', () => {
     beforeEach(angular.mock.module('app.services.auth'));

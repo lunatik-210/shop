@@ -1,0 +1,12 @@
+
+.b-login-form {
+    @include centered-container(200px, 200px);
+}
+
+.b-login-form .form-group input {
+    text-align:center;
+}
+
+.b-login-form .btn-login {
+    width: 100% !important;
+}

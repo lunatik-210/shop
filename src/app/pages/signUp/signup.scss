@@ -1,0 +1,12 @@
+
+.b-signup-form {
+    @include centered-container(200px, 200px);
+}
+
+.b-signup-form .form-group input {
+    text-align:center;
+}
+
+.b-signup-form .btn-signup {
+    width: 100% !important;
+}

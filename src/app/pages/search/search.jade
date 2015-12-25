@@ -1,1 +1,73 @@
-h1 Hello world {{search.name}}
+.b-search.container
+
+  .b-navgar.row
+    nav.navbar.navbar-default
+      .container-fluid
+        .navbar-header
+          a.navbar-brand(href="#") Shop
+        ul.nav.navbar-nav.navbar-right
+          li
+            button.btn.btn-default.navbar-btn.cart
+              span.glyphicon.glyphicon-shopping-cart
+          li.dropdown
+            a.dropdown-toggle(href="#", data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false") 
+              | User name <span class="caret"></span>
+            ul.dropdown-menu
+              li
+                a(href="#") Log out
+
+  .b-filters.row
+    .col-md-4
+      p.input-group
+        input.form-control(type='text', 
+          uib-datepicker-popup='yyyy-MM-dd', 
+          ng-model='search.dateFrom', 
+          is-open='openedDateFrom', 
+          max-date='search.fromMaxDate()', 
+          close-text='Close'
+          placeholder='Date from')
+        span.input-group-btn
+          button.btn.btn-default(type='button', ng-click='openedDateFrom = !openedDateFrom')
+            i.glyphicon.glyphicon-calendar
+    .col-md-4
+      p.input-group
+        input.form-control(type='text',
+          uib-datepicker-popup='yyyy-MM-dd',
+          ng-model='search.dateTo',
+          is-open='openedDateTo',
+          min-date='search.dateFrom',
+          max-date='search.maxDate',
+          close-text='Close',
+          placeholder='Date to')
+        span.input-group-btn
+          button.btn.btn-default(type='button', ng-click='openedDateTo = !openedDateTo')
+            i.glyphicon.glyphicon-calendar
+    .col-md-4
+      p.input-group
+        .checkbox
+          label
+            | <input type="checkbox">In stock only
+  .row
+    .col-md-4.form-inline.form-group
+          label(for="filterPriceFrom") Price from
+            input.form-control#filterPriceFrom(type='text')
+    .col-md-4.form-inline.form-group
+        label(for="filterPriceTo") to
+          input.form-control#filterPriceTo(type='text')
+    .col-md-4.form-inline.form-group
+      ui-select(multiple='', ng-model='search.selectedColors', theme='bootstrap', style='width: 100%;')
+        ui-select-match(placeholder='Select colors...') {{$item}}
+        ui-select-choices(repeat='color in search.availableColors')
+          | {{color}}
+
+  .row
+    .col-md-12
+      .e-separator
+  
+  .row
+    .col-md-12
+      .row(ng-repeat="item in search.items")
+        | {{item}}
+
+
+  

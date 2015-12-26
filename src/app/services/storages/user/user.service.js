@@ -27,7 +27,7 @@ export class UserStorage {
     }
 
     get(user) {
-        return _.findWhere(this.getAll(), user);
+        return _.findWhere(this.getAll(), {email: user});
     }
 
     getAll() {

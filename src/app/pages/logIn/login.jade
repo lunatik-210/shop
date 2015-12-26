@@ -1,9 +1,9 @@
 form.b-login-form
     .form-group
-        input.form-control(type='email', placeholder='Email')
+        input.form-control(type='email', placeholder='Email', ng-model='login.form.email')
     .form-group
-        input.form-control(type='password', placeholder='Password')
+        input.form-control(type='password', placeholder='Password', ng-model='login.form.password')
     .form-group
-        button.btn.btn-default.btn-login(type='submit') Login
+        button.btn.btn-default.btn-login(type='submit', ng-click='login.logIn(login.form)') Login
     .form-group
-        button.btn.btn-default.btn-login(type='submit') SingUp
+        button.btn.btn-default.btn-login(type='submit', ng-click='login.signUp()') SingUp

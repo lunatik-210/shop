@@ -1,7 +1,10 @@
 
 export default class SearchController {
-    constructor($scope, COLOR_SELECTOR_EVENTS, items) {
+    constructor($scope, $state, COLOR_SELECTOR_EVENTS, items, AuthService) {
         'ngInject';
+
+        this.authService = AuthService;
+        this.$state = $state;
 
         this.dateFrom = null;
         this.dateTo = null;
@@ -33,5 +36,10 @@ export default class SearchController {
             return this.dateTo;
         }
         return null;
+    }
+
+    logOut() {
+        this.authService.signOut();
+        this.$state.go('login');
     }
 }

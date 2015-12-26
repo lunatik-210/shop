@@ -5,6 +5,6 @@ export default function routerConfig ($stateProvider) {
         url: '/login',
         templateUrl: 'app/pages/logIn/login.html',
         controller: 'LogInController',
-        controllerAs: 'logIn'
+        controllerAs: 'login'
     });
 }

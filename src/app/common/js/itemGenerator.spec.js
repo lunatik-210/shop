@@ -1,14 +1,14 @@
 
 import {ItemGenerator} from './itemGenerator';
 
-describe('Item generator', () => {
+describe('app/common/js: Item generator', () => {
     let itemGenerator = undefined;
 
     beforeEach(() => {
         itemGenerator = new ItemGenerator();
     });
 
-    it("Should generate sequence of items with defined data and iterative ids", () => {
+    it("should generate sequence of items with defined data and iterative ids", () => {
         for(let i = 0; i < 5; ++i) {
             let item = itemGenerator.next();
 

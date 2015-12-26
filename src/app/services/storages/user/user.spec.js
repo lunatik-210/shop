@@ -1,10 +1,10 @@
 
 import './user.module';
 
-describe('Users storage', () => {
+describe('app/services/storages/user: Users storage', () => {
     beforeEach(angular.mock.module('app.services.storages.user'));
 
-    it('Should add user', inject((UserStorage) => {
+    it('should add user', inject((UserStorage) => {
         UserStorage.add({email: 'foo', password: 'foo'});
         
         let user = UserStorage.get('foo');
@@ -14,7 +14,7 @@ describe('Users storage', () => {
         expect(users.length).toBe(1);
     }));
 
-    it('Should remove user',  inject((UserStorage) => {
+    it('should remove user',  inject((UserStorage) => {
         UserStorage.remove({email: 'foo'});
 
         expect(UserStorage.get('foo')).toBeUndefined();

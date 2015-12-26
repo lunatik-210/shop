@@ -1,0 +1,20 @@
+$b-color-selector-e-color-size: 35px;
+
+.b-color-selector {
+  width: 100%;
+  height: 100%;
+}
+
+.b-color-selector .e-color {
+  display: inline-block;
+  width: $b-color-selector-e-color-size;
+  height: $b-color-selector-e-color-size;
+  border: 2px solid #BBBBBB;
+}
+
+.b-color-selector .e-color.is-active {
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+          box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+}

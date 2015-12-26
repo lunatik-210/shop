@@ -1,8 +1,6 @@
 
 export class RatingDirective {
     constructor() {
-        'ngInject';
-
         let directive = {
             restrict: 'E',
             templateUrl: 'app/components/rating/rating.html',

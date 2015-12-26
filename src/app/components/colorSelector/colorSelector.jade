@@ -1,0 +1,5 @@
+.b-color-selector
+  .e-color(ng-repeat="color in colorSelector._colors"
+    ng-class="{'is-active': color.isSelected}"
+    ng-click="colorSelector.select(color)"
+    style="background-color: {{color.name}};")

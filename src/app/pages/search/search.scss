@@ -2,3 +2,23 @@
   margin-right: 10px;
   margin-left: 10px;
 }
+
+.b-search .e-item-card img {
+  width: 200px;
+  height: 200px;
+  margin: 30px;
+}
+
+.b-search .e-item-card .item-in-stock {
+  color: #006C00;
+}
+
+.b-search .e-item-card .item-not-in-stock {
+  color: #930000;
+  text-decoration: line-through;
+}
+
+.b-search .e-item-card .item-color {
+  width: 50px;
+  height: 50px;
+}

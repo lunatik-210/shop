@@ -17,7 +17,7 @@ describe('Item generator', () => {
             expect(item.issueDate).toBeDefined();
             expect(item.price).toBeDefined();
             expect(item.raiting).toBeDefined();
-            expect(item.image).toBeDefined();
+            expect(item.imageSrc).toBeDefined();
             expect(item.isInStock).toBeDefined();
             expect(item.id).toBeDefined();
             expect(item.id).toBe(i);

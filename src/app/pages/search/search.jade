@@ -49,11 +49,11 @@
             | <input type="checkbox">In stock only
   .row
     .col-md-4.form-inline.form-group
-          label(for="filterPriceFrom") Price from
-            input.form-control#filterPriceFrom(type='text')
+      label(for="filterPriceFrom") Price from
+        input.form-control#filterPriceFrom(type='text')
     .col-md-4.form-inline.form-group
-        label(for="filterPriceTo") to
-          input.form-control#filterPriceTo(type='text')
+      label(for="filterPriceTo") to
+        input.form-control#filterPriceTo(type='text')
     .col-md-4.form-inline.form-group
       ui-select(multiple='', ng-model='search.selectedColors', theme='bootstrap', style='width: 100%;')
         ui-select-match(placeholder='Select colors...') {{$item}}
@@ -64,7 +64,22 @@
     .col-md-12
       .e-separator
   
-  .row
-    .col-md-12
-      div(ng-repeat="item in search.items")
-        | {{item}}
+  .col-md-12
+    .row.e-item-card(ng-repeat="item in search.items")
+      .col-md-4
+        img(ng-src='{{item.imageSrc}}', alt='{{item.name}}')
+      .col-md-8
+        .row
+          .col-md-4
+            h3 {{item.name}}
+          .col-md-4
+            h3 {{item.issueDate | date : "yyyy-MM-dd"}}
+          .col-md-4
+            h3 {{item.price | currency:"$ "}}
+        .row
+          .col-md-4
+            .item-color(style="background-color: {{item.color}};")
+          .col-md-4
+            h3(ng-class="{'item-in-stock': item.isInStock, 'item-not-in-stock': !item.isInStock}") In stock
+          .col-md-4
+            button.btn.btn-default Order

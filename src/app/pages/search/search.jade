@@ -46,14 +46,14 @@
       p.input-group
         .checkbox
           label
-            | <input type="checkbox">In stock only
+            | <input type="checkbox" ng-model="search.filters.inStockOnly">In stock only
   .row
     .col-md-4.form-inline.form-group
       label(for="filterPriceFrom") Price from
-        input.form-control#filterPriceFrom(type='text')
+        input.form-control#filterPriceFrom(type='number', ng-model="search.filters.priceFrom")
     .col-md-4.form-inline.form-group
       label(for="filterPriceTo") to
-        input.form-control#filterPriceTo(type='text')
+        input.form-control#filterPriceTo(type='number', ng-model="search.filters.priceTo")
     .col-md-4
       color-selector(colors="search.availableColors")
 
@@ -62,7 +62,7 @@
       .e-separator
   
   .col-md-12
-    .row.e-item-card(ng-repeat="item in search.items")
+    .row.e-item-card(ng-repeat="item in search.items | itemFilter :search.filters")
       item-rating(value='item.rating', stars-number='5')
       .col-md-4
         img(ng-src='{{item.imageSrc}}', alt='{{item.name}}')

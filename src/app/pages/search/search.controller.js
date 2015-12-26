@@ -6,7 +6,7 @@ export default class SearchController {
         this.dateFrom = null;
         this.dateTo = null;
         this.maxDate = new Date();
-        this.availableColors = ['Red','White','Black','Blue','Yellow','Green'];
+        this.availableColors = ['red','white','black','blue','yellow','green'];
         this.items = items;
 
         this.filters = {
@@ -15,13 +15,16 @@ export default class SearchController {
             inStockOnly: false,
             priceFrom: undefined,
             priceTo: undefined,
-            colors: _.difference(this.availableColors, [])
+            colors: undefined
         };
 
         $scope.$on(COLOR_SELECTOR_EVENTS.ON_COLOR_SELECTED, (e, colors) => {
             e.stopPropagation();
-
-            this.filters.colors = _.difference(this.availableColors, colors);
+            if(colors.length > 0) {
+                this.filters.colors = colors;
+            } else {
+                this.filters.colors = undefined;
+            }
         });
     }
 

@@ -5,6 +5,14 @@ export default function routerConfig ($stateProvider) {
         url: '/',
         templateUrl: 'app/pages/search/search.html',
         controller: 'SearchController',
-        controllerAs: 'search'
+        controllerAs: 'search',
+        resolve: {
+            items: [
+                'ItemService',
+                function(ItemService) {
+                    return ItemService.getAll();
+                }
+            ]
+        }
     });
 }

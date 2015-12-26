@@ -1,21 +1,13 @@
 
-import {ItemGenerator} from '../../common/js/itemGenerator';
-
 export default class SearchController {
-    constructor($scope, COLOR_SELECTOR_EVENTS) {
+    constructor($scope, COLOR_SELECTOR_EVENTS, items) {
         'ngInject';
 
         this.dateFrom = null;
         this.dateTo = null;
         this.maxDate = new Date();
         this.availableColors = ['Red','White','Black','Blue','Yellow','Green'];
-        this.items = [];
-
-        let itemGenerator = new ItemGenerator();
-        for(let i = 0; i<20; ++i){
-            this.items.push(itemGenerator.next());
-        }
-        itemGenerator = null;
+        this.items = items;
 
         this.filters = {
             dateFrom: undefined,

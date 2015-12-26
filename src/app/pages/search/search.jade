@@ -66,6 +66,7 @@
   
   .col-md-12
     .row.e-item-card(ng-repeat="item in search.items")
+      item-rating(value='item.rating', stars-number='5')
       .col-md-4
         img(ng-src='{{item.imageSrc}}', alt='{{item.name}}')
       .col-md-8

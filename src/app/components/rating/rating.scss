@@ -1,0 +1,9 @@
+.b-rating .e-rating-star {
+  font-size: 3.0em;
+}
+
+.b-rating .e-rating-star.filled-star:before {
+   content: "\2605";
+   position: absolute;
+   color: #FFFF00;
+}

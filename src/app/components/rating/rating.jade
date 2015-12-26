@@ -1,0 +1,2 @@
+.b-rating
+  span.e-rating-star(ng-repeat="i in rating.range(rating.starsNumber) track by $index" ng-class="{'filled-star': rating.value > $index}") ☆

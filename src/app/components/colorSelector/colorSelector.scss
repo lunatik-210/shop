@@ -10,6 +10,7 @@ $b-color-selector-e-color-size: 35px;
   width: $b-color-selector-e-color-size;
   height: $b-color-selector-e-color-size;
   border: 2px solid #BBBBBB;
+  cursor: pointer;
 }
 
 .b-color-selector .e-color.is-active {

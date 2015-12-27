@@ -3,10 +3,17 @@
   margin-left: 10px;
 }
 
+.b-search .item-container {
+  padding: 20px;
+}
+
 .b-search .e-item-card img {
   width: 200px;
   height: 200px;
-  margin: 30px;
+}
+
+.b-search .price-filter {
+  width: 100%;
 }
 
 .b-search .e-item-card .item-in-stock {
@@ -19,8 +26,8 @@
 }
 
 .b-search .e-item-card .item-color {
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   border: 2px solid #BBBBBB;
 }
 
@@ -72,4 +79,13 @@
 
 .b-search ul.dropdown-cart li .item-right button {
   margin-top:14px;
+}
+
+.col-centered {
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    text-align:left;
+    /* inline-block space fix */
+    margin-right:-4px;
 }

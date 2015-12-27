@@ -1,27 +1,32 @@
 .e-separator {
-    border-bottom: 2px solid #D7D7D7;
+  border-bottom: 2px solid #D7D7D7;
 }
 
 growl-notifications {
-    position: fixed;
-    right: 10px;
-    z-index: 1000;
+  position: fixed;
+  right: 10px;
+  z-index: 1000;
 }
 
 growl-notifications growl-notification {
-    background: rgba(0,0,0,0.5);
-    color: yellow;
-    padding: 15px 30px;
-    width: 200px;
-    display: block;
-    border-radius: 5px;
-    margin-top: 15px;
+  background: rgba(0,0,0,0.5);
+  color: yellow;
+  padding: 15px 30px;
+  width: 200px;
+  display: block;
+  border-radius: 5px;
+  margin-top: 15px;
 }
 
 .notify-error {
-    color: rgba(255,148,148,1.0);
+  color: rgba(255,148,148,1.0);
 }
 
 .notify-success {
-    color: rgba(255,255,255,1.0);
+  color: rgba(255,255,255,1.0);
+}
+
+.v-center-col {
+  display: flex;
+  align-items: center;
 }

@@ -1,5 +1,4 @@
 .b-search.container
-
   .b-navgar.row
     nav.navbar.navbar-default
       .container-fluid
@@ -23,7 +22,6 @@
                   span.item-right
                     button.btn.btn-xs.btn-danger.pull-right(ng-click="search.removeItemFromCart($event, $index)") x
 
-
           li.dropdown
             a.dropdown-toggle(href="#", data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false") 
               | {{search.authService.current().email}} <span class="caret"></span>
@@ -32,7 +30,7 @@
                 a(href="#", ng-click="search.logOut()") Log out
 
   .b-filters.row
-    .col-md-4
+    .col-md-4.col-xs-4
       p.input-group
         input.form-control(type='text', 
           uib-datepicker-popup='yyyy-MM-dd', 
@@ -44,7 +42,7 @@
         span.input-group-btn
           button.btn.btn-default(type='button', ng-click='openedDateFrom = !openedDateFrom')
             i.glyphicon.glyphicon-calendar
-    .col-md-4
+    .col-md-4.col-xs-4
       p.input-group
         input.form-control(type='text',
           uib-datepicker-popup='yyyy-MM-dd',
@@ -57,40 +55,41 @@
         span.input-group-btn
           button.btn.btn-default(type='button', ng-click='openedDateTo = !openedDateTo')
             i.glyphicon.glyphicon-calendar
-    .col-md-4
+    .col-md-4.col-xs-4
       p.input-group
         .checkbox
           label
             | <input type="checkbox" ng-model="search.filters.inStockOnly">In stock only
   .row
-    .col-md-4.form-inline.form-group
-        input.form-control(type='text', ng-model="search.filters.priceFrom", placeholder='Price from', style='width: 100%;', restrict-to-number)
-    .col-md-4.form-inline.form-group
-        input.form-control(type='text', ng-model="search.filters.priceTo", placeholder='Price to', style='width: 100%;', restrict-to-number)
-    .col-md-4
+    .col-md-4.col-xs-4.form-inline.form-group
+        input.price-filter.form-control(type='text', ng-model="search.filters.priceFrom", placeholder='Price from', restrict-to-number)
+    .col-md-4.col-xs-4.form-inline.form-group
+        input.price-filter.form-control(type='text', ng-model="search.filters.priceTo", placeholder='Price to', restrict-to-number)
+    .col-md-4.col-xs-4
       color-selector(colors="search.availableColors")
 
   .row
-    .col-md-12
+    .col-md-12.col-xs-12
       .e-separator
   
-  .col-md-12
+  .col-md-12.col-xs-12
     .row.e-item-card(ng-repeat="item in search.items | itemFilter :search.filters")
-      item-rating(value='item.rating', stars-number='5')
-      .col-md-4
-        img(ng-src='{{item.imageSrc}}', alt='{{item.name}}')
-      .col-md-8
-        .row
-          .col-md-4
+      .col-md-4.col-xs-4
+        .item-container
+          img(ng-src='{{item.imageSrc}}', alt='{{item.name}}')
+          item-rating(value='item.rating', stars-number='5')
+      .col-md-8.col-xs-8
+        .row.item-container
+          .col-md-4.col-xs-4
             h3 {{item.name}}
-          .col-md-4
+          .col-md-4.col-xs-4
             h3 {{item.issueDate | date : "yyyy-MM-dd"}}
-          .col-md-4
+          .col-md-4.col-xs-4
             h3 {{item.price | currency:"$ "}}
-        .row
-          .col-md-4
+        .row.item-container
+          .col-md-4.col-xs-4
             .item-color(style="background-color: {{item.color}};")
-          .col-md-4
+          .col-md-4.col-xs-4
             h3(ng-class="{'item-in-stock': item.isInStock, 'item-not-in-stock': !item.isInStock}") In stock
-          .col-md-4
-            button.btn.btn-default(ng-click="search.addItemToCart(item)") Order
+          .col-md-4.col-xs-4
+            button.btn.btn-default(ng-click="search.addItemToCart(item)" style='width: 100px;') Order

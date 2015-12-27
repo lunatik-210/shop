@@ -1,15 +1,17 @@
 
 export default class SearchController {
-    constructor($scope, $state, COLOR_SELECTOR_EVENTS, items, AuthService) {
+    constructor($scope, $state, COLOR_SELECTOR_EVENTS, items, cartItems, AuthService, CartStorage) {
         'ngInject';
 
         this.authService = AuthService;
+        this.cartStorage = CartStorage;
         this.$state = $state;
 
         this.dateFrom = null;
         this.dateTo = null;
         this.maxDate = new Date();
         this.availableColors = ['red','white','black','blue','yellow','green'];
+        this.cartItems = cartItems;
         this.items = items;
 
         this.filters = {
@@ -41,5 +43,20 @@ export default class SearchController {
     logOut() {
         this.$state.go('login');
         this.authService.signOut();
+    }
+
+    removeItemFromCart(e, index) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const email = this.authService.current().email;
+        this.cartStorage.remove(this.authService.current().email, index);
+        this.cartItems = this.cartStorage.getAll(email);
+    }
+
+    addItemToCart(item) {
+        const email = this.authService.current().email;
+        this.cartStorage.add(this.authService.current().email, item);
+        this.cartItems = this.cartStorage.getAll(email);
     }
 }

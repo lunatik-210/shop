@@ -12,6 +12,13 @@ export default function routerConfig ($stateProvider) {
                 function(ItemService) {
                     return ItemService.getAll();
                 }
+            ],
+            cartItems: [
+                'CartStorage',
+                'AuthService',
+                function(CartStorage, AuthService) {
+                    return CartStorage.getAll(AuthService.current().email);
+                }
             ]
         },
         module: 'private'

@@ -10,7 +10,7 @@
             | {{search.cartItems.length}} - Items
             span.caret
           ul.dropdown-menu.dropdown-cart(role='menu')
-            li(ng-repeat='item in search.cartItems')
+            li(ng-repeat="item in search.cartItems | orderBy: 'id'")
               span.item
                 span.item-left
                   img(ng-src='{{item.imageSrc}}', alt='{{item.name}}')

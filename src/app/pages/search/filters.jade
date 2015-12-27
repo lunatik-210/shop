@@ -1,0 +1,38 @@
+.row
+  .col-md-4.col-xs-4
+    p.input-group
+      input.form-control(type='text', 
+        uib-datepicker-popup='yyyy-MM-dd', 
+        ng-model='search.filters.dateFrom', 
+        is-open='openedDateFrom', 
+        max-date='search.fromMaxDate()', 
+        close-text='Close'
+        placeholder='Date from')
+      span.input-group-btn
+        button.btn.btn-default(type='button', ng-click='openedDateFrom = !openedDateFrom')
+          i.glyphicon.glyphicon-calendar
+  .col-md-4.col-xs-4
+    p.input-group
+      input.form-control(type='text',
+        uib-datepicker-popup='yyyy-MM-dd',
+        ng-model='search.filters.dateTo',
+        is-open='openedDateTo',
+        min-date='search.filters.dateFrom',
+        max-date='search.maxDate',
+        close-text='Close',
+        placeholder='Date to')
+      span.input-group-btn
+        button.btn.btn-default(type='button', ng-click='openedDateTo = !openedDateTo')
+          i.glyphicon.glyphicon-calendar
+  .col-md-4.col-xs-4
+    p.input-group
+      .checkbox
+        label
+          | <input type="checkbox" ng-model="search.filters.inStockOnly">In stock only
+.row
+  .col-md-4.col-xs-4.form-inline.form-group
+      input.price-filter.form-control(type='text', ng-model="search.filters.priceFrom", placeholder='Price from', restrict-to-number)
+  .col-md-4.col-xs-4.form-inline.form-group
+      input.price-filter.form-control(type='text', ng-model="search.filters.priceTo", placeholder='Price to', restrict-to-number)
+  .col-md-4.col-xs-4
+    color-selector(colors="search.availableColors")

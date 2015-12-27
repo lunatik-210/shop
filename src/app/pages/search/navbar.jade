@@ -1,0 +1,28 @@
+.b-navgar.row
+  nav.navbar.navbar-default
+    .container-fluid
+      a.navbar-brand(href="#") Shop
+
+      ul.nav.navbar-nav.navbar-right
+        li.dropdown(ng-if='search.cartItems.length')
+          a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
+            span.glyphicon.glyphicon-shopping-cart
+            | {{search.cartItems.length}} - Items
+            span.caret
+          ul.dropdown-menu.dropdown-cart(role='menu')
+            li(ng-repeat='item in search.cartItems')
+              span.item
+                span.item-left
+                  img(ng-src='{{item.imageSrc}}', alt='{{item.name}}')
+                  span.item-info
+                    span {{item.name}}
+                    span {{item.price | currency:"$ "}}
+                span.item-right
+                  button.btn.btn-xs.btn-danger.pull-right(ng-click="search.removeItemFromCart($event, $index)") x
+
+        li.dropdown
+          a.dropdown-toggle(href="#", data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false") 
+            | {{search.authService.current().email}} <span class="caret"></span>
+          ul.dropdown-menu
+            li
+              a(href="#", ng-click="search.logOut()") Log out

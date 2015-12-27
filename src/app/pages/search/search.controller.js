@@ -39,7 +39,7 @@ export default class SearchController {
     }
 
     logOut() {
-        this.authService.signOut();
         this.$state.go('login');
+        this.authService.signOut();
     }
 }

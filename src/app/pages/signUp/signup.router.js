@@ -5,6 +5,7 @@ export default function routerConfig ($stateProvider) {
         url: '/signup',
         templateUrl: 'app/pages/signUp/signup.html',
         controller: 'SignUpController',
-        controllerAs: 'signup'
+        controllerAs: 'signup',
+        module: 'public'
     });
 }

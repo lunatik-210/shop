@@ -13,6 +13,7 @@ export default function routerConfig ($stateProvider) {
                     return ItemService.getAll();
                 }
             ]
-        }
+        },
+        module: 'private'
     });
 }

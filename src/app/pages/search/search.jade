@@ -10,7 +10,7 @@
           li.dropdown(ng-if='search.cartItems.length')
             a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
               span.glyphicon.glyphicon-shopping-cart
-              | {{search.cartStorage.getAll(search.authService.current().email).length}} - Items
+              | {{search.cartItems.length}} - Items
               span.caret
             ul.dropdown-menu.dropdown-cart(role='menu')
               li(ng-repeat='item in search.cartItems')
@@ -35,7 +35,7 @@
       p.input-group
         input.form-control(type='text', 
           uib-datepicker-popup='yyyy-MM-dd', 
-          ng-model='search.dateFrom', 
+          ng-model='search.filters.dateFrom', 
           is-open='openedDateFrom', 
           max-date='search.fromMaxDate()', 
           close-text='Close'
@@ -47,9 +47,9 @@
       p.input-group
         input.form-control(type='text',
           uib-datepicker-popup='yyyy-MM-dd',
-          ng-model='search.dateTo',
+          ng-model='search.filters.dateTo',
           is-open='openedDateTo',
-          min-date='search.dateFrom',
+          min-date='search.filters.dateFrom',
           max-date='search.maxDate',
           close-text='Close',
           placeholder='Date to')
@@ -63,11 +63,9 @@
             | <input type="checkbox" ng-model="search.filters.inStockOnly">In stock only
   .row
     .col-md-4.form-inline.form-group
-      label(for="filterPriceFrom") Price from
-        input.form-control#filterPriceFrom(type='number', ng-model="search.filters.priceFrom")
+        input.form-control(type='text', ng-model="search.filters.priceFrom", placeholder='Price from', style='width: 100%;', restrict-to-number)
     .col-md-4.form-inline.form-group
-      label(for="filterPriceTo") to
-        input.form-control#filterPriceTo(type='number', ng-model="search.filters.priceTo")
+        input.form-control(type='text', ng-model="search.filters.priceTo", placeholder='Price to', style='width: 100%;', restrict-to-number)
     .col-md-4
       color-selector(colors="search.availableColors")
 

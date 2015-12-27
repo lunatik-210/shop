@@ -16,6 +16,22 @@ function priceRangeFilter(priceFrom, priceTo) {
     return predicate;
 }
 
+function dateRangeFitler(dateFrom, dateTo) {
+    if(!dateFrom && !dateTo) { return undefined; }
+
+    let predicate = undefined;
+
+    if(dateFrom && !dateTo) {
+        predicate = (item) => (new Date(item.issueDate)).getTime() >= dateFrom.getTime();
+    } else if(!dateFrom && dateTo) {
+        predicate = (item) => (new Date(item.issueDate)).getTime() <= dateTo.getTime();
+    } else {
+        predicate = (item) => ((new Date(item.issueDate)).getTime() >= dateFrom.getTime() && (new Date(item.issueDate)).getTime() <= dateTo.getTime());
+    }
+
+    return predicate;  
+}
+
 function colorRangeFilter(allowedColors) {
     if(!allowedColors) { return undefined; }
     return (item) => _.contains(allowedColors, item.color);
@@ -31,6 +47,11 @@ export function itemFilter(items, filters) {
     let predicate = undefined;
 
     predicate = priceRangeFilter(filters.priceFrom, filters.priceTo)
+    if(predicate) {
+        predicates.push(predicate);
+    }
+
+    predicate = dateRangeFitler(filters.dateFrom, filters.dateTo)
     if(predicate) {
         predicates.push(predicate);
     }

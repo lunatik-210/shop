@@ -7,8 +7,6 @@ export default class SearchController {
         this.cartStorage = CartStorage;
         this.$state = $state;
 
-        this.dateFrom = null;
-        this.dateTo = null;
         this.maxDate = new Date();
         this.availableColors = ['red','white','black','blue','yellow','green'];
         this.cartItems = cartItems;
@@ -34,8 +32,8 @@ export default class SearchController {
     }
 
     fromMaxDate() {
-        if(this.dateTo) {
-            return this.dateTo;
+        if(this.filters.dateTo) {
+            return this.filters.dateTo;
         }
         return null;
     }

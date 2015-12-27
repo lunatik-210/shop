@@ -16,12 +16,13 @@
               li(ng-repeat='item in search.cartItems')
                 span.item
                   span.item-left
-                    img(src='http://lorempixel.com/50/50/', alt='')
+                    img(ng-src='{{item.imageSrc}}', alt='{{item.name}}')
                     span.item-info
                       span {{item.name}}
                       span {{item.price | currency:"$ "}}
                   span.item-right
                     button.btn.btn-xs.btn-danger.pull-right(ng-click="search.removeItemFromCart($event, $index)") x
+
 
           li.dropdown
             a.dropdown-toggle(href="#", data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false") 

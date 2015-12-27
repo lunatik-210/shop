@@ -11,14 +11,21 @@
             span.caret
           ul.dropdown-menu.dropdown-cart(role='menu')
             li(ng-repeat="item in search.cartItems | orderBy: 'id'")
-              span.item
-                span.item-left
-                  img(ng-src='{{item.imageSrc}}', alt='{{item.name}}')
-                  span.item-info
-                    span {{item.name}}
-                    span {{item.price | currency:"$ "}}
-                span.item-right
-                  button.btn.btn-xs.btn-danger.pull-right(ng-click="search.removeItemFromCart($event, $index)") x
+              img(ng-src='{{item.imageSrc}}', alt='{{item.name}}')
+              .separator
+              span.item-info
+                span.item-name {{item.name}}
+                .separator
+                span.item-cost {{item.price | currency:"$"}}
+              button.btn.btn-xs.btn-danger(ng-click="search.removeItemFromCart($event, $index)") x
+              //span.item
+              //  span.item-left
+              //    img(ng-src='{{item.imageSrc}}', alt='{{item.name}}')
+              //    span.item-info
+              //      span {{item.name}}
+              //      span {{item.price | currency:"$ "}}
+              //  span.item-right
+              //    button.btn.btn-xs.btn-danger.pull-right(ng-click="search.removeItemFromCart($event, $index)") x
 
         li.dropdown
           a.dropdown-toggle(href="#", data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false") 
